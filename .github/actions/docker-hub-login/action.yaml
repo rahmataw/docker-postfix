@@ -12,5 +12,5 @@ runs:
     - name: Login to DockerHub
       uses: docker/login-action@v1
       with:
-        username: 'boky'
+        username: 'riupie'
         password: '${{ inputs.DOCKER_ACCESS_TOKEN }}'
