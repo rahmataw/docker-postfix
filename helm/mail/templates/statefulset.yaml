@@ -109,7 +109,7 @@ spec:
               readOnly: true
               subPath: _enable_tls.sh
             {{- end }}
-            {{- if .Values.certs.mount }}
+        {{- if and (eq .Values.certs.create false) (eq .Values.certs.mount true) }}
             - name: certs
               mountPath: /var/run/certs
               readOnly: true
