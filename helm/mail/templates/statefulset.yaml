@@ -109,6 +109,15 @@ spec:
               readOnly: true
               subPath: _enable_tls.sh
             {{- end }}
+            {{- if .Values.certs.mount }}
+            - name: certs
+              mountPath: /var/run/certs
+              readOnly: true
+            - name: certs-init
+              mountPath: /docker-init.db/_enable_tls.sh
+              readOnly: true
+              subPath: _enable_tls.sh
+            {{- end }}
             {{- if .Values.mountSecret.enabled }}
             - name: mount-secret
               mountPath: {{ .Values.mountSecret.path }}
@@ -133,6 +142,15 @@ spec:
         - name: certs
           secret:
             secretName: {{ $fullName }}-certs
+        {{- end }}
+        {{- if .Values.certs.mount }}
+        - name: certs-init
+          configMap:
+            name: {{ $fullName }}
+            defaultMode: 0755
+        - name: certs
+          secret:
+            secretName: {{ .Values.certs.secretName }}
         {{- end }}
         {{- if and .Values.persistence.enabled .Values.persistence.existingClaim }}
         - name: {{ $fullName }}
