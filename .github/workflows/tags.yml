@@ -77,8 +77,8 @@ jobs:
           context: .
           push: true
           tags: |
-            boky/postfix:${{ env.RELEASE_VERSION }}
-            boky/postfix:${{ env.RELEASE_VERSION }}-alpine
+            riupie/postfix:${{ env.RELEASE_VERSION }}
+            riupie/postfix:${{ env.RELEASE_VERSION }}-alpine
           # linux/s390x: "rsyslog (no such package)"
           # Latest Alpine does not have all packages for 386 any more :-(
           platforms: "linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le"
@@ -127,7 +127,7 @@ jobs:
         with:
           context: .
           push: true
-          tags: boky/postfix:${{ env.RELEASE_VERSION }}-ubuntu
+          tags: riupie/postfix:${{ env.RELEASE_VERSION }}-ubuntu
           platforms: "linux/arm/v7,linux/amd64,linux/arm64,linux/ppc64le,linux/s390x"
           cache-from: type=local,src=/tmp/.buildx-cache/ubuntu
           cache-to: type=local,dest=/tmp/.buildx-cache-new/ubuntu
@@ -190,7 +190,7 @@ jobs:
       - name: Create helm chart index
         uses: WyriHaximus/github-action-helm3@v2
         with:
-          exec: cd gh-pages && rm -rf .git && helm repo index . --url https://bokysan.github.io/docker-postfix
+          exec: cd gh-pages && rm -rf .git && helm repo index . --url https://rahmataw.github.io/docker-postfix
       - name: Upload gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:

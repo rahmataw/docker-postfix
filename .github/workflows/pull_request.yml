@@ -70,8 +70,8 @@ jobs:
           context: .
           push: false
           tags: |
-            boky/postfix:latest
-            boky/postfix:latest-alpine
+            riupie/postfix:latest
+            riupie/postfix:latest-alpine
           platforms: "linux/amd64"
           cache-from: type=local,src=/tmp/.buildx-cache/alpine
 
