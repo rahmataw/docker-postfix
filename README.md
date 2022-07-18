@@ -589,7 +589,7 @@ Chart configuration is as follows:
 | `affinity` | `{}` | Standard Kubernetes stuff |
 | `certs.create` | `{}` | Auto generate TLS certificates for Postfix |
 | `certs.mount` | `{}` | Mount TLS certificates for Postfix |
-| `certs.secretName` | `{}` | Secret name which will be mounted if cert.mount value is true |
+| `certs.secretName` | `{}` | Secret name which will be mounted if `cert.mount` value is `true` |
 | `extraVolumes` | `[]` | Append any extra volumes to the pod |
 | `extraVolumeMounts` | `[]` | Append any extra volume mounts to the postfix container |
 | `extraInitContainers` | `[]` | Execute any extra init containers on startup |
